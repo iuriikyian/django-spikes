@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block title %}edit note{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'notes/index.css' %}">
+{% endblock %}
+
+{% block toolbarTitle %}edit note{% endblock %}
+{% block toolbarCommands %}
+    <a href="/"><button class="n-left">back</button></a>
+{% endblock %}
+
+{% block body %}
+<h3>edit note</h3>
+{% if notes|length %}
+{% else %}
+   no notes exists
+{% endif %}
+<div class="commands">
+<a href="/notes/edit"><button>create note</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        {% block pageTitle %}django notes{% endblock %}
+    </title>
+    {% block header %}{% endblock %}
+    
+</head>
+<body>
+    <div class="n-toolbar">
+        {% block toolbarCommands %}{% endblock %}
+        <span class="title">{% block toolbarTitle %}django notes{% endblock %}</span>
+        <div class="n-clear"></div>
+    </div>
+
+    {% block body %}{% endblock %}
+</body>
