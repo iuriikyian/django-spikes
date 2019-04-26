@@ -6,18 +6,27 @@
 <link rel="stylesheet" href="{% static 'notes/index.css' %}">
 {% endblock %}
 
-{% block toolbarTitle %}edit note{% endblock %}
+{% block toolbarTitle %}
+    {% if text %}
+        Edit note
+    {% else %}
+        New note
+    {% endif %}
+{% endblock %}
+
 {% block toolbarCommands %}
     <a href="/"><button class="n-left">back</button></a>
 {% endblock %}
 
 {% block body %}
-<h3>edit note</h3>
-{% if notes|length %}
-{% else %}
-   no notes exists
-{% endif %}
-<div class="commands">
-<a href="/notes/edit"><button>create note</button></a>
-</div>
+
+
+<form action="" method="post">
+        {% csrf_token %}
+    <input type="hidden" name="pk" value="{{ note.pk }}">
+    <textarea name="text">{{ note.text }}</textarea>
+    <div>
+        <input type="submit" value="Save">
+    </div>
+</form>
 {% endblock %}
