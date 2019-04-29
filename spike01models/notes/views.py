@@ -6,8 +6,9 @@ from notes.models import Note
 # Create your views here.
 
 def index(request):
+    notes = Note.objects.all().order_by('-updated')[0:10]
     return render(request, 'notes/index.html', {
-        "notes" : []
+        "notes" : notes
     })
 
 def edit(request, id=None):
@@ -32,3 +33,6 @@ def edit(request, id=None):
         n.save()
         return HttpResponseRedirect('/')
             
+def delete(request, id):
+    Note.objects.get(pk=id).delete()
+    return HttpResponseRedirect('/')

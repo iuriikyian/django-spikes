@@ -12,6 +12,18 @@
 {% block body %}
 <h3>index page</h3>
 {% if notes|length %}
+    {% for note in notes %}
+        <div class="n-note">
+            <div class="command">
+                <a href="/delete/{{note.pk}}"><button>delete</button></a>
+            </div>
+            <div class="command">
+                <a href="/edit/{{note.pk}}"><button>edit</button></a>
+            </div>
+            {{ note.text }}
+            <div class="n-clear"></div>
+        </div>
+    {% endfor %}
 {% else %}
    no notes exists
 {% endif %}

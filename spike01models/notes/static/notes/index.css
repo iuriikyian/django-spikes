@@ -32,3 +32,19 @@ button.n-left {
 .n-clear {
     clear: both;
 }
+
+.n-note {
+    padding: 10px;
+    border-bottom: solid 1px #ddd;
+}
+
+.n-note .command  button{
+    display: block;
+    float: right;
+    margin: 0 0 0 10px;
+    background: white;
+    padding: 10px 5px;
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+}
