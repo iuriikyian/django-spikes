@@ -1,0 +1,25 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'authtest/index.css' %}">
+{% endblock %}
+
+{% block toolbarTitle %}django auth test{% endblock %}
+{% block body %}
+<h3>auth test index page</h3>
+{% if user.is_authenticated %}
+    user is authenticated
+    <div>
+        <a href="/logout?next=/"><button>logout</button></a>
+    </div>
+{% else %}
+    user is NOT authenticated
+    <div>
+        <a href="/login?next=/"><button>login</button></a>
+    </div>
+    <div>
+        <a href="/signup?next=/"><button>signup</button></a>
+    </div>
+{% endif %}
+{% endblock %}

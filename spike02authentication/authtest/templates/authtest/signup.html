@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'authtest/index.css' %}">
+{% endblock %}
+
+{% block toolbarTitle %}django auth test signup{% endblock %}
+{% block body %}
+<h3>auth test signup page</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" value="" placeholder="username">
+    <input type="text" name="email" value="" placeholder="email">
+    <input type="text" name="password" value="" placeholder="password">
+    <div>
+        <input type="submit" value="Signup">
+    </div>
+</form>
+{% endblock %}
